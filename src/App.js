@@ -10,8 +10,14 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                        <Route path="/" exact component={ListTask}/>
-                        <Route path="/add/" component={ToDolist}/>
+                    <nav className="navbar navbar-light bg-light">
+                        <form className="form-inline">
+                            <button className="btn btn-outline-success" type="button"><Link to="/add">ADD TASK</Link></button>
+                            <button className="btn btn-outline-success" type="button"><Link to="/">LIST TASKS</Link></button>
+                        </form>
+                    </nav>
+                    <Route path="/" exact component={ListTask}/>
+                    <Route path="/add/" component={ToDolist}/>
                 </div>
             </BrowserRouter>
         )

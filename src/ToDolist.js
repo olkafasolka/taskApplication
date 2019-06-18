@@ -38,7 +38,7 @@ class ToDolist extends Component {
                                 onChange={e => {
                                     this.setState({taskStatus: e.target.value})
                                 }}>
-                            <option value="null" id="null">Wybierz status</option>
+                            <option value="null" id="null">Set status</option>
                             <option value="To Do">To do</option>
                             <option value="In Progress">In progress</option>
                             <option value="Done">Done</option>

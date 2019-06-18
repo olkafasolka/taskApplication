@@ -1,25 +1,25 @@
 import React, {Component} from "react";
+import ListTask from "./ListTask";
 
 class TableList extends Component {
 
     taskChange = e => this.setState({taskTitle: e.target.value});
 
-    onClickRemove = e =>{
-
-            fetch(`https://localhost:44337/api/Task/${e.target.value}`, {
-
+    onClickRemove = e => {
+        e.preventDefault();
+        prompt("Uwaga USUWASZ rekord w bazie");
+        fetch(`https://localhost:44337/api/Task/${e.target.value}`, {
             method: 'delete',
         })
-
-            .then(res => res.json());
+            .then(res => res.json())
+            .then(<ListTask/>)
     }
-
-
 
 
     onClickEdit() {
         prompt("Uwaga edytujesz rekord w bazie")
     }
+
 
     render() {
         const {oneTask} = this.props;
@@ -35,7 +35,8 @@ class TableList extends Component {
                     <button className="btn btn-danger" value={oneTask.taskId} onClick={this.onClickRemove}>Usuń</button>
                 </td>
                 <td>
-                    <button className="btn btn-success" value={oneTask.taskId} onClick={this.onClickEdit}>Edytuj</button>
+                    <button className="btn btn-success" value={oneTask.taskId} onClick={this.onClickEdit}>Edytuj
+                    </button>
                 </td>
             </tr>
 

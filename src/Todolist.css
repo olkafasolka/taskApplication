@@ -1,9 +1,3 @@
-body {
-    padding: 50px;
-    background-color: darkseagreen;
-    font-family: sans-serif;
-}
-
 input {
     border: solid 1px;
     margin: 5px;
@@ -20,4 +14,15 @@ input {
 
 #selectAddID {
     width: 12%;
+}
+
+.navbar {
+    margin-bottom: 40px;
+}
+
+body {
+    padding: 5px;
+}
+.btn-outline-success {
+    margin-right: 5px;
 }
