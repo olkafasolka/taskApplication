@@ -10,6 +10,10 @@ class ListTask extends Component {
     }
 
     componentDidMount() {
+        this.fetchData();
+    }
+
+    fetchData = () => {
         this.setState({isLoading: true});
         fetch("https://localhost:44337/api/Task")
             .then(res => {
@@ -31,7 +35,7 @@ class ListTask extends Component {
             <table className="table table-dark">
                 <tbody>
                 {this.state.task &&
-                this.state.task.map(item => <TableList oneTask={item}/>)}
+                this.state.task.map(item => <TableList oneTask={item} refresh={this.fetchData}/>)}
                 </tbody>
             </table>
         );

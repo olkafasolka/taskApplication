@@ -11,8 +11,9 @@ class TableList extends Component {
         fetch(`https://localhost:44337/api/Task/${e.target.value}`, {
             method: 'delete',
         })
-            .then(res => res.json())
-            .then(<ListTask/>)
+            .then(resp =>{
+                this.props.refresh();
+            })
     }
 
 
