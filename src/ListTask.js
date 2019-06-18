@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import TableList from './TableList'
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 class ListTask extends Component {
     constructor(props) {
         super(props);
@@ -9,7 +10,7 @@ class ListTask extends Component {
     }
 
     componentDidMount() {
-
+        this.setState({isLoading: true});
         fetch("https://localhost:44337/api/Task")
             .then(res => {
                 return res.json();
@@ -29,8 +30,6 @@ class ListTask extends Component {
         return (
             <table className="table table-dark">
                 <tbody>
-                <th scope="col">Zadanie</th><th scope="col">Opis</th><th scope="col">Status</th><th scope="col">Usuń</th><th scope="col">Edytuj</th>
-                {this.state.isLoading}
                 {this.state.task &&
                 this.state.task.map(item => <TableList oneTask={item}/>)}
                 </tbody>

@@ -1,28 +1,41 @@
 import React, {Component} from "react";
 
 class TableList extends Component {
-    onClickRemove() {
-        prompt("hkjghkjhkjhhj")
-        // alert("Kliknięto USUŃ!");
+
+    taskChange = e => this.setState({taskTitle: e.target.value});
+
+    onClickRemove = e =>{
+
+            fetch(`https://localhost:44337/api/Task/${e.target.value}`, {
+
+            method: 'delete',
+        })
+
+            .then(res => res.json());
     }
 
+
+
+
     onClickEdit() {
-        alert("Kliknięto EDIT!");
+        prompt("Uwaga edytujesz rekord w bazie")
     }
 
     render() {
         const {oneTask} = this.props;
 
         return (
+
             <tr>
                 <td>{oneTask.taskTitle}</td>
                 <td>{oneTask.taskDescription}</td>
                 <td>{oneTask.taskStatus}</td>
+                <td>{oneTask.taskId}</td>
                 <td>
-                    <button className="btn btn-danger" onClick={this.onClickRemove}>Usuń</button>
+                    <button className="btn btn-danger" value={oneTask.taskId} onClick={this.onClickRemove}>Usuń</button>
                 </td>
                 <td>
-                    <button className="btn btn-success" onClick={this.onClickEdit}>Edytuj</button>
+                    <button className="btn btn-success" value={oneTask.taskId} onClick={this.onClickEdit}>Edytuj</button>
                 </td>
             </tr>
 
