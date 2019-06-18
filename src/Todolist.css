@@ -1,0 +1,23 @@
+body {
+    padding: 50px;
+    background-color: darkseagreen;
+    font-family: sans-serif;
+}
+
+input {
+    border: solid 1px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.divstyl {
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.selectADD {
+    width: 12%;
+}
