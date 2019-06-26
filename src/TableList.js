@@ -3,12 +3,12 @@ import ListTask from "./ListTask";
 
 class TableList extends Component {
 
-    taskChange = e => this.setState({taskTitle: e.target.value});
+    taskChange = e => this.setState({Title: e.target.value});
 
     onClickRemove = e => {
         e.preventDefault();
         prompt("Uwaga USUWASZ rekord w bazie");
-        fetch(`https://localhost:44337/api/Task/${e.target.value}`, {
+        fetch(`https://localhost:44368/api/Todo/${e.target.value}`, {
             method: 'delete',
         })
             .then(resp =>{
@@ -28,15 +28,15 @@ class TableList extends Component {
         return (
 
             <tr>
-                <td>{oneTask.taskTitle}</td>
-                <td>{oneTask.taskDescription}</td>
-                <td>{oneTask.taskStatus}</td>
-                <td>{oneTask.taskId}</td>
+                <td>{oneTask.Title}</td>
+                <td>{oneTask.Description}</td>
+                <td>{oneTask.Status}</td>
+                <td>{oneTask.Id}</td>
                 <td>
-                    <button className="btn btn-danger" value={oneTask.taskId} onClick={this.onClickRemove}>Usuń</button>
+                    <button className="btn btn-danger" value={oneTask.Id} onClick={this.onClickRemove}>Usuń</button>
                 </td>
                 <td>
-                    <button className="btn btn-success" value={oneTask.taskId} onClick={this.onClickEdit}>Edytuj
+                    <button className="btn btn-success" value={oneTask.Id} onClick={this.onClickEdit}>Edytuj
                     </button>
                 </td>
             </tr>

@@ -15,7 +15,7 @@ class ListTask extends Component {
 
     fetchData = () => {
         this.setState({isLoading: true});
-        fetch("https://localhost:44337/api/Task")
+        fetch("https://localhost:44368/api/Todo")
             .then(res => {
                 return res.json();
             })

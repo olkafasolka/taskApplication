@@ -4,6 +4,11 @@ input {
     padding: 5px;
 }
 
+a:root {
+    color: #28a745;
+}
+
+
 .divstyl {
     margin-bottom: 10px;
 }

@@ -3,21 +3,21 @@ import React, {Component} from 'react'
 class ToDolist extends Component {
     constructor() {
         super();
-        this.state = {taskTitle: "", taskDescription: "", taskStatus: ""};
+        this.state = {Title: "", Description: "", Status: ""};
         this.taskChange = this.taskChange.bind(this);
     }
 
-    taskChange = e => this.setState({taskTitle: e.target.value});
+    taskChange = e => this.setState({Title: e.target.value});
 
     formSubmit = e => {
         e.preventDefault();
-        fetch('https://localhost:44337/api/Task', {
+        fetch('https://localhost:44368/api/Todo', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                "taskTitle": this.state.taskTitle,
-                "taskDescription": this.state.taskDescription,
-                "taskStatus": this.state.taskStatus
+                "Title": this.state.Title,
+                "Description": this.state.Description,
+                "Status": this.state.Status
             })
         });
     }
@@ -27,16 +27,16 @@ class ToDolist extends Component {
             <div className="todoListMain">
                 <div className="header">
                     <form onSubmit={this.formSubmit}>
-                        <div className="divstyl"><input placeholder="Task" name="task" value={this.state.taskTitle}
+                        <div className="divstyl"><input placeholder="Task" name="task" value={this.state.Title}
                                                         onChange={this.taskChange}/></div>
                         <div className="divstyl"><input placeholder="Description" name="description"
-                                                        value={this.state.taskDescription}
+                                                        value={this.state.Description}
                                                         onChange={e => {
-                                                            this.setState({taskDescription: e.target.value})
+                                                            this.setState({Description: e.target.value})
                                                         }}/></div>
-                        <select id="selectAddID" className="selectAdd form-control" name="select" value={this.state.taskStatus}
+                        <select id="selectAddID" className="selectAdd form-control" name="select" value={this.state.Status}
                                 onChange={e => {
-                                    this.setState({taskStatus: e.target.value})
+                                    this.setState({Status: e.target.value})
                                 }}>
                             <option value="null" id="null">Set status</option>
                             <option value="To Do">To do</option>
