@@ -35,7 +35,7 @@ class ListTask extends Component {
             <table className="table table-dark">
                 <tbody>
                 {this.state.task &&
-                this.state.task.map(item => <TableList oneTask={item} refresh={this.fetchData}/>)}
+                this.state.task.map(item => <TableList key={item.id} oneTask={item} refresh={this.fetchData}/>)}
                 </tbody>
             </table>
         );
